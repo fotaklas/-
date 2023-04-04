@@ -17,8 +17,8 @@ delay(5000);
 
 void loop() 
 {   
- a=analogRead(A0);                    //photoresistor value
- float sensorValue = analogRead(A1);  //anemometer    value
+ a=analogRead(A1);                    //photoresistor value
+ float sensorValue = analogRead(A0);  //anemometer    value
  
  
  float voltage = (sensorValue / 1023) * 5;
@@ -35,8 +35,8 @@ void loop()
    min = a;   
  }
 
- //if(wind_speed) 
- if(a<40){              
+if(wind_speed<6) {
+ if(a<100){                //40 
    digitalWrite(6,HIGH);
    digitalWrite(7,LOW);
     if(counter==1){
@@ -55,6 +55,12 @@ void loop()
      counter=counter+1;
     } 
  } 
+}else{  
+  digitalWrite(5,HIGH);          
+  delay(10000);                  
+  digitalWrite(5,LOW);  
+  counter=counter+1;
+}
  metrisi=metrisi+1;                 // mono gia ta apotelesmata
 
  delay(1000);
@@ -70,7 +76,7 @@ void loop()
  Serial.println("m/s");
  Serial.println();
  
- delay(60000); // diakoph enos leptoy
+ delay(1000); // diakoph enos leptoy
 } 
 float mapfloat(float x, float in_min, float in_max, float out_min, float out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
