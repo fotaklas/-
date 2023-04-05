@@ -35,33 +35,34 @@ void loop()
    min = a;   
  }
 
-if(wind_speed<6) {
- if(a<100){                //40 
-   digitalWrite(6,HIGH);
-   digitalWrite(7,LOW);
-    if(counter==1){
-     digitalWrite(8,HIGH);             // sun
-     delay(10000);                     //delay for motor //xrono gia na anebei h tenta 
-     digitalWrite(8,LOW);
-     counter=counter-1;
-     }
- }else{
-   digitalWrite(7,HIGH);
-   digitalWrite(6,LOW);
-    if(counter==0){
-     digitalWrite(5,HIGH);            //there is no sun
-     delay(10000);                   //delay for motor //xrono gia na katebei h tenta
-     digitalWrite(5,LOW);
-     counter=counter+1;
-    } 
- } 
-}else{  
-  digitalWrite(5,HIGH);          
-  delay(10000);                  
-  digitalWrite(5,LOW);  
-  counter=counter+1;
-}
- metrisi=metrisi+1;                 // mono gia ta apotelesmata
+ if(wind_speed<6) {
+  if(a<150){              
+    digitalWrite(6,HIGH);
+    digitalWrite(7,LOW);
+     if(counter==1){
+      digitalWrite(8,HIGH);             // sun
+      delay(60000);                     //delay for motor //xrono gia na anebei h tenta 
+      digitalWrite(8,LOW);
+      counter=counter-1;
+      }
+  }else{
+    digitalWrite(7,HIGH);
+    digitalWrite(6,LOW);
+     if(counter==0){
+      digitalWrite(5,HIGH);            //there is no sun
+      delay(60000);                   //delay for motor //xrono gia na katebei h tenta
+      digitalWrite(5,LOW);
+      counter=counter+1;
+     } 
+  } 
+ }  
+else{
+      digitalWrite(5,HIGH);            //there is no sun
+      delay(60000);                   //delay for motor //xrono gia na katebei h tenta
+      digitalWrite(5,LOW);
+      counter=counter+1;      
+}  
+metrisi=metrisi+1;                 // mono gia ta apotelesmata
 
  delay(1000);
  Serial.print(metrisi); 
