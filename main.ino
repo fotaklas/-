@@ -41,7 +41,7 @@ void loop()
     digitalWrite(7,LOW);
      if(counter==1){
       digitalWrite(8,HIGH);             // sun
-      delay(60000);                     //delay for motor //xrono gia na anebei h tenta 
+      delay(60000);                     
       digitalWrite(8,LOW);
       counter=counter-1;
       }
@@ -49,21 +49,21 @@ void loop()
     digitalWrite(7,HIGH);
     digitalWrite(6,LOW);
      if(counter==0){
-      digitalWrite(5,HIGH);            //there is no sun
-      delay(60000);                   //delay for motor //xrono gia na katebei h tenta
+      digitalWrite(5,HIGH);            
+      delay(60000);                   
       digitalWrite(5,LOW);
       counter=counter+1;
      } 
   } 
  }  
 else{
-      digitalWrite(5,HIGH);            //there is no sun
-      delay(60000);                   //delay for motor //xrono gia na katebei h tenta
+      digitalWrite(5,HIGH);            
+      delay(60000);                   
       digitalWrite(5,LOW);
       counter=counter+1;      
 }  
-metrisi=metrisi+1;                 // mono gia ta apotelesmata
 
+ metrisi=metrisi+1;
  delay(1000);
  Serial.print(metrisi); 
  Serial.print(")H metrish ana 1 lepto einai: ");
@@ -77,7 +77,7 @@ metrisi=metrisi+1;                 // mono gia ta apotelesmata
  Serial.println("m/s");
  Serial.println();
  
- delay(1000); // diakoph enos leptoy
+ delay(60000); // diakoph enos leptoy
 } 
 float mapfloat(float x, float in_min, float in_max, float out_min, float out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
