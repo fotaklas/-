@@ -1,14 +1,14 @@
-int a; 
-int counter; 
+int a;  
 int metrisi;
 int max=-1000;
 int min=1000;
+bool run = false;
 
 void setup()
 {
 pinMode(5,OUTPUT);
 pinMode(6,OUTPUT);
-pinMode(7,OUTPUT);
+pinMode(7,OUTPUT);    
 pinMode(8,OUTPUT);
 Serial.begin(9600);
 Serial.println("START");
@@ -35,32 +35,32 @@ void loop()
    min = a;   
  }
 
- if(wind_speed<6) {
-  if(a<150){              
-    digitalWrite(6,HIGH);
-    digitalWrite(7,LOW);
-     if(counter==1){
+ if(wind_speed<7) {
+  if(a<160){              
+
+     if(run == false){
       digitalWrite(8,HIGH);             // sun
       delay(60000);                     
       digitalWrite(8,LOW);
-      counter=counter-1;
+      run = true;
       }
+
   }else{
-    digitalWrite(7,HIGH);
-    digitalWrite(6,LOW);
-     if(counter==0){
+    
+     if(run == true){
       digitalWrite(5,HIGH);            
       delay(60000);                   
       digitalWrite(5,LOW);
-      counter=counter+1;
+      run = false;
      } 
+
   } 
  }  
 else{
-      digitalWrite(5,HIGH);            
-      delay(60000);                   
-      digitalWrite(5,LOW);
-      counter=counter+1;      
+    digitalWrite(5,HIGH);            
+    delay(60000);                   
+    digitalWrite(5,LOW);     
+     run = false;       
 }  
 
  metrisi=metrisi+1;
