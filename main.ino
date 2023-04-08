@@ -36,17 +36,14 @@ void loop()
  }
 
  if(wind_speed<7) {
-  if(a<160){              
-
+  if(a<100){              
      if(run == false){
       digitalWrite(8,HIGH);             // sun
       delay(60000);                     
       digitalWrite(8,LOW);
       run = true;
       }
-
-  }else{
-    
+  } else if (a>170) {    
      if(run == true){
       digitalWrite(5,HIGH);            
       delay(60000);                   
