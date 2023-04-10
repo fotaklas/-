@@ -43,7 +43,7 @@ void loop()
       digitalWrite(8,LOW);
       run = true;
       }
-  } else if (a>170) {    
+  } else if (a>200) {    
      if(run == true){
       digitalWrite(5,HIGH);            
       delay(60000);                   
