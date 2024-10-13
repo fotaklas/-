@@ -59,7 +59,6 @@ else{
     digitalWrite(5,LOW);     
      run = false;       
 }  
-
  metrisi=metrisi+1;
  delay(1000);
  Serial.print(metrisi); 
@@ -73,7 +72,6 @@ else{
  Serial.print(wind_speed);
  Serial.println("m/s");
  Serial.println();
- 
  delay(60000); // diakoph enos leptoy
 } 
 float mapfloat(float x, float in_min, float in_max, float out_min, float out_max) {
